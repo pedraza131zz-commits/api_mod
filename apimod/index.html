@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex | PokéAPI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="encabezado">
+    <a href="#" class="logo">POKÉ<span>DEX</span></a>
+    <span class="etiqueta">GENERACIONES I - IV</span>
+</header>
+
+<main class="contenedor">
+
+    <section class="presentacion">
+        <div>
+            <p class="sobretitulo">EXPLORADOR POKÉMON</p>
+            <h1>Descubre tu próximo Pokémon.</h1>
+            <p>Explora las primeras cuatro generaciones y consulta sus datos en tiempo real.</p>
+        </div>
+        <div class="pokebola" aria-hidden="true">
+            <div class="centro"></div>
+        </div>
+    </section>
+
+    <section class="busqueda panel">
+        <form id="formulario">
+            <label for="buscador">Buscar por nombre o número de Pokédex</label>
+            <div class="barra-busqueda">
+                <input id="buscador" type="search"
+                    placeholder="Ej. Pikachu, Lucario o 448"
+                    autocomplete="off" required>
+                <button type="submit" id="btnBuscar">Buscar</button>
+            </div>
+        </form>
+
+        <div class="filtros">
+            <label for="generacion">Generación</label>
+            <select id="generacion">
+                <option value="all">Todas las generaciones</option>
+                <option value="1">I · Kanto (001–151)</option>
+                <option value="2">II · Johto (152–251)</option>
+                <option value="3">III · Hoenn (252–386)</option>
+                <option value="4">IV · Sinnoh (387–493)</option>
+            </select>
+
+            <span id="contador">Cargando catálogo...</span>
+        </div>
+    </section>
+
+    <section class="detalle panel" id="detalle">
+        <div class="detalle-vacio">
+            <span class="icono-vacio">?</span>
+            <h2>Selecciona un Pokémon</h2>
+            <p>Su imagen, estadísticas, habilidades y respuesta JSON aparecerán aquí.</p>
+        </div>
+    </section>
+
+    <section class="catalogo">
+        <div class="encabezado-seccion">
+            <div>
+                <p class="sobretitulo">LA POKÉDEX</p>
+                <h2>Todos los Pokémon</h2>
+            </div>
+            <span id="paginaInfo">493 Pokémon</span>
+        </div>
+
+        <div id="estadoCatalogo" class="mensaje">Cargando Pokémon desde PokéAPI...</div>
+        <div id="catalogo" class="rejilla"></div>
+    </section>
+
+    <section class="panel json-panel">
+        <div class="encabezado-json">
+            <div>
+                <p class="sobretitulo">RESPUESTA HTTP</p>
+                <h2>Datos JSON</h2>
+            </div>
+            <button type="button" id="btnCopiar" class="boton-secundario">
+                Copiar JSON
+            </button>
+        </div>
+
+        <div class="metadatos">
+            <span>Estado: <strong id="estadoHTTP">Esperando consulta</strong></span>
+            <span>Tiempo: <strong id="tiempoHTTP">--</strong></span>
+        </div>
+
+        <pre id="salidaJSON">{
+  "mensaje": "Selecciona un Pokémon para comenzar"
+}</pre>
+
+        <p class="fuente">
+            API:
+            <a href="https://pokeapi.co/docs/v2" target="_blank"
+                rel="noopener noreferrer">Documentación de PokéAPI</a>
+        </p>
+    </section>
+
+</main>
+
+<footer>
+    Proyecto educativo ADSO · HTML · CSS · JavaScript · API REST
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
